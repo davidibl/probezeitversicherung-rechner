@@ -1,14 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { MatInputModule, MatAutocompleteModule, MatChipsModule } from '@angular/material';
+import { MatInputModule, MatAutocompleteModule, MatChipsModule, MatCardModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { PreventCharsDirective } from './directives/preventCharsDirective';
+import { ShiftPosition } from './pipes/splitPipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PreventCharsDirective,
+    ShiftPosition,
   ],
   imports: [
     BrowserModule,
@@ -17,8 +21,10 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatAutocompleteModule,
     MatChipsModule,
+    MatCardModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

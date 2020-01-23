@@ -1,36 +1,48 @@
-<form class="example-form">
-  <div>
-  <mat-form-field class="example-full-width">
-    <input
-      matInput
-      placeholder="Ihr Netto-Gehalt"
-      [ngModel]="gehaltSubject | async"
-      (ngModelChange)="setGehalt($event)"
-      name="gehalt">
-  </mat-form-field>
-  </div>
-  <div>
+<div class="container">
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Beitragsberechnung</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+  <form class="example-form">
+    <div>
     <mat-form-field class="example-full-width">
       <input
-        type="text"
-        name="beruf"
-        placeholder="Wählen Sie Ihren Beruf"
-        aria-label="Number"
         matInput
-        [ngModel]="berufSubject | async"
-        (ngModelChange)="setBeruf($event)"
-        [matAutocomplete]="auto" />
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let beruf of berufe" [value]="beruf.name">
-          {{beruf.name}}
-        </mat-option>
-      </mat-autocomplete>
+        appPreventChars
+        autocomplete="off"
+        placeholder="Ihr Netto-Gehalt"
+        [ngModel]="gehalt$ | async"
+        (ngModelChange)="setGehalt($event)"
+        name="gehalt">
     </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <input
+          type="text"
+          name="beruf"
+          placeholder="Wählen Sie Ihren Beruf"
+          aria-label="Number"
+          matInput
+          [ngModel]="beruf$ | async"
+          (ngModelChange)="setBeruf($event)"
+          [matAutocomplete]="auto" />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let beruf of berufe" [value]="beruf.name">
+            {{beruf.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-card-content>
+<mat-card-content>
+  <div class="preis-tag">
+    <h1 class="preis-big">{{beitragFinal$ | async | currency:'EUR':true | split}}</h1>
+    <h5 class="preis-small">monatlicher Beitrag</h5>
   </div>
-  <div class="center">
-    <mat-chip-list aria-label="Beitrag">
-      <mat-chip color="primary" selected>{{beitragSubject | async}}</mat-chip>
-    </mat-chip-list>
-  </div>
-</form>
+</mat-card-content>
+</mat-card>
+</div>
 

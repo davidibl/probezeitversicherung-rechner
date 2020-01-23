@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, ReplaySubject, combineLatest } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, combineLatest, merge } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 export interface Beruf {
@@ -23,35 +23,45 @@ export class AppComponent implements OnInit {
   ];
 
   public klassenTabelle = {
-    A: 0.1,
-    B: 0.2,
-    C: 0.3,
-    D: 0.4,
+    A: 0.01,
+    B: 0.02,
+    C: 0.03,
+    D: 0.04,
   }
 
-  public gehaltSubject = new BehaviorSubject<number>(0);
-  public berufSubject = new ReplaySubject<string>(1);
+  public gehalt$ = new ReplaySubject<number>(1);
+  public beruf$ = new ReplaySubject<string>(1);
 
-  public beitragSubject = combineLatest(this.gehaltSubject, this.berufSubject)
+  public beitragInitial$ = new BehaviorSubject(0);
+  public beitrag$ = combineLatest(this.gehalt$, this.beruf$)
                             .pipe(
                               map(([gehalt, berufName]) => {
                                 if (!gehalt || !berufName) {
                                   return 0;
                                 }
-                                const klasse = this.berufe.find(b => b.name === berufName).klasse;
-                                return gehalt * this.klassenTabelle[klasse];
+                                const beruf = this.berufe.find(b => b.name === berufName);
+                                if (!beruf) {
+                                  return 0;
+                                }
+                                const klasse = beruf.klasse;
+                                const preisBasis = ((gehalt * 0.4) * 6) * this.klassenTabelle[klasse];
+                                const preis = preisBasis;
+                                return preis.toFixed(2);
                               })
                             );
 
+  public beitragFinal$ = merge(this.beitragInitial$, this.beitrag$);
 
-  public test = this.beitragSubject.pipe(tap(value => console.log(value))).subscribe();
+
+  public test = this.beitrag$.pipe(tap(value => console.log(value))).subscribe();
 
   public setBeruf(beruf: string) {
-    this.berufSubject.next(beruf);
+    this.beruf$.next(beruf);
   }
 
   public setGehalt(gehalt: string) {
-    this.gehaltSubject.next(parseFloat(gehalt));
+    const newGehalt = !gehalt ? null : parseFloat(gehalt);
+    this.gehalt$.next(newGehalt);
   }
 
   public ngOnInit() {
