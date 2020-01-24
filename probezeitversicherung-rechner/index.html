@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ProbezeitversicherungRechner</title>
+  <base href="probezeitversicherung-rechner">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link rel="stylesheet" href="styles.198142422b808d1fa5f8.css"></head>
+<body>
+  <app-root>
+    <style>
+      .spinner {
+        position:                                           relative;
+        display:                                            block;
+        top:                                                50%;
+      }
+      .message {
+        color:                                          #333;
+        display:                                        block;
+        position:                                       relative;
+        text-align:                                     center;
+        padding-top:                                    50px;
+      }
+
+      .dot-spinner {
+          display:                                        block;
+          position:                                       relative;
+          top:                                            50%;
+          margin-top: 30%;
+          text-align:                                     center;
+      }
+
+      .dot-spinner > div {
+          width:                                          18px;
+          height:                                         18px;
+          background-color:                               #333;
+
+          border-radius:                                  100%;
+          margin-right:                                   5px;
+          display:                                        inline-block;
+          -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+          animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+      }
+
+      .dot-spinner > div:last-child {
+          margin-right:                                   0;
+      }
+
+      .dot-spinner .bounce1 {
+          -webkit-animation-delay:                        -0.32s;
+          animation-delay:                                -0.32s;
+      }
+
+      .dot-spinner .bounce2 {
+          -webkit-animation-delay:                        -0.16s;
+          animation-delay:                                -0.16s;
+      }
+
+      @-webkit-keyframes sk-bouncedelay {
+          0%, 80%, 100% { -webkit-transform: scale(0) }
+          40% { -webkit-transform: scale(1.0) }
+      }
+
+      @keyframes sk-bouncedelay {
+          0%, 80%, 100% {
+              -webkit-transform: scale(0);
+              transform: scale(0);
+          } 40% {
+              -webkit-transform: scale(1.0);
+              transform: scale(1.0);
+          }
+      }
+    </style>
+    <div class="spinner">
+      <div class="dot-spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+      </div>
+      <h4 *ngIf="message" class="message">Einen Moment...</h4>
+    </div>
+  </app-root>
+<script src="runtime-es2015.858f8dd898b75fe86926.js" type="module"></script><script src="polyfills-es2015.27661dfa98f6332c27dc.js" type="module"></script><script src="runtime-es5.741402d1d47331ce975c.js" nomodule></script><script src="polyfills-es5.4e06eb653a3c8a2d581f.js" nomodule></script><script src="main-es2015.7c14cc3877bde3d38d84.js" type="module"></script><script src="main-es5.97cd3707800ee0df39f6.js" nomodule></script></body>
+</html>
