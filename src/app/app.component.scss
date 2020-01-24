@@ -2,9 +2,8 @@
   display: inline-block;
 }
 
-.container {
-  width: auto;
-  margin: 0 auto;
+.rechner {
+  margin-right: 1rem;
 }
 
 .preis-big, .preis-small {
@@ -13,5 +12,17 @@
 
 .preis-tag {
   margin: 2rem;
+}
+
+.card {
+  height: 270px;
+}
+
+.mt0 {
+  margin-top: 0;
+}
+
+.mb05 {
+  margin-bottom: 0.5rem;
 }
 
