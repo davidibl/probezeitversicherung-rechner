@@ -1,11 +1,12 @@
 {
   "name": "probezeitversicherung-rechner",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "build-prod": "ng build --prod",
+    "build-prod-publish": "ng build --prod --base-href 'probezeitversicherung-rechner' && ngh",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -43,6 +44,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "angular-cli-ghpages": "^0.6.2",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
