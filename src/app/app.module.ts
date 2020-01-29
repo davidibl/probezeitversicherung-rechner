@@ -14,12 +14,14 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { PreventCharsDirective } from './directives/preventCharsDirective';
 import { ShiftPosition } from './pipes/splitPipe';
+import { RechnerComponent } from './components/rechner';
 
 @NgModule({
   declarations: [
     AppComponent,
     PreventCharsDirective,
     ShiftPosition,
+    RechnerComponent,
   ],
   imports: [
     BrowserModule,
