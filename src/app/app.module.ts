@@ -22,6 +22,8 @@ import { ShiftPosition } from './pipes/splitPipe';
 import { RechnerComponent } from './components/rechner';
 import { LeistungComponent } from './components/leistung';
 import { BeitragZahlweiseComponent } from './components/beitragZahlweise';
+import { CalculationService } from './services/calculationService';
+import { AnalyticsService } from './services/analyticsService';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { BeitragZahlweiseComponent } from './components/beitragZahlweise';
     MatMenuModule,
   ],
   providers: [
+    CalculationService,
+    AnalyticsService,
   ],
   bootstrap: [AppComponent]
 })

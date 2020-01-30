@@ -124,7 +124,7 @@
   <div class="sm-col background-accent">
     <mat-vertical-stepper #abschlussstepper>
       <mat-step [completed]="!beitragUnten?.beitragJaehrlich" label="Einfacher Abschluss">
-        <p>Sag uns einfach Deinen Beruf, Dein zukünftiges Netto-Monatsgehalt und ob Du Kinder hast, dann siehst Du auf
+        <p class="mt1">Sag uns einfach Deinen Beruf, Dein zukünftiges Netto-Monatsgehalt und ob Du Kinder hast, dann siehst Du auf
           einen
           Blick Deinen individuellen Beitrag
           und die Leistung die Du von uns erhältst wenn Du während der Probezeit gekündigt wirst.</p>
@@ -135,7 +135,7 @@
           color="primary">Zum Beitrag</button>
       </mat-step>
       <mat-step [completed]="false" editable="!!beitragUnten" label="Dein Beitrag">
-        <p>
+        <p class="mt1">
           Du kannst nun wählen ob Du Deinen Beitrag lieber auf einmal oder in monatlichen Raten bezahlen möchtest.
           Dein indivdueller Beitrag ist genau auf Dich zugeschnitten und macht es möglich das wir im Kündigungsfall die
           Lücke
@@ -146,7 +146,7 @@
           color="primary">Weiter</button>
       </mat-step>
       <mat-step [completed]="false" label="Die Kündigung während der Probezeit">
-        <p>Während der Probezeit genießt Du keinen Kündigungsschutz. Dein Arbeitgeber kann Dir jederzeit ohne die Angabe
+        <p class="mt1">Während der Probezeit genießt Du keinen Kündigungsschutz. Dein Arbeitgeber kann Dir jederzeit ohne die Angabe
           von Gründen kündigen.
         </p>
         <p>Vielleicht hat es einfach nicht ganz gepasst. Vielleicht bist Du aber auch krankheitsbedingt
@@ -175,7 +175,7 @@
           Insgesamt bekommst Du von uns maximal
           <b>{{leistungUnten?.leistungGesamt | currency:'EUR':'symbol' | split}}</b>
         </p>
-        <button class="block" (click)="scroll(mehr)" mat-flat-button color="primary">Jetzt abschließen</button>
+        <button class="block" style="margin-top: 1rem;" (click)="scroll(mehr)" mat-flat-button color="primary">Jetzt abschließen</button>
       </mat-step>
     </mat-vertical-stepper>
   </div>

@@ -4,6 +4,7 @@ import { map, tap, filter, debounceTime } from 'rxjs/operators';
 import { berufe } from '../berufe';
 import { Beitrag } from '../models/beitrag';
 import { Leistung } from '../models/leistung';
+import { CalculationService } from '../services/calculationService';
 
 export interface Beruf {
   name: string;
@@ -42,18 +43,12 @@ export class RechnerComponent implements OnInit {
   public gehaltLazy$ = this.gehalt$.pipe(debounceTime(300));
   public beitrag$ = combineLatest(this.gehaltLazy$, this.eigeneKinder$)
                             .pipe(
-                              map(([gehalt, eigeneKinder]) => {
-                                if (!gehalt) {
-                                  return 0;
-                                }
-                                const factor = this.getKinderFactor(eigeneKinder);
-                                const preisBasis = (this.calculateLeistungMonatlich(gehalt, factor) / 100) * 50;
-                                const preis = preisBasis;
-                                return parseFloat(preis.toFixed(2));
-                              })
+                              map(([gehalt, eigeneKinder]) =>
+                                this.calculationService.calculateBeitrag(gehalt, eigeneKinder))
                             );
 
-  public beitragFinal$ = merge(this.beitragInitial$, this.beitrag$).pipe(filter(beitrag => beitrag !== null && beitrag !== undefined));
+  public beitragFinal$ = merge(this.beitragInitial$, this.beitrag$)
+    .pipe(filter(beitrag => beitrag !== null && beitrag !== undefined));
 
   public beitragMonatlich$ = this.beitragFinal$.pipe(
     filter(beitrag => beitrag !== null && beitrag !== undefined),
@@ -71,7 +66,7 @@ export class RechnerComponent implements OnInit {
         if (!gehalt) {
           return 0;
         }
-        const factor = this.getKinderFactor(eigeneKinder);
+        const factor = this.calculationService.getKinderFactor(eigeneKinder);
         return parseFloat((gehalt * factor).toFixed(2));
       })
     );
@@ -84,8 +79,8 @@ export class RechnerComponent implements OnInit {
         if (!gehalt) {
           return 0;
         }
-        const factor = this.getKinderFactor(eigeneKinder);
-        return parseFloat(this.calculateLeistungMonatlich(gehalt, factor).toFixed(2));
+        const factor = this.calculationService.getKinderFactor(eigeneKinder);
+        return parseFloat(this.calculationService.calculateLeistungMonatlich(gehalt, factor).toFixed(2));
       })
     );
   public leistungMonatlichInitial$ = new BehaviorSubject(0);
@@ -100,6 +95,8 @@ export class RechnerComponent implements OnInit {
 
   @Output()
   public leistung = new EventEmitter<Leistung>();
+
+  public constructor(private calculationService: CalculationService) {}
 
   @Input()
   public setBeruf(beruf: string) {
@@ -126,13 +123,5 @@ export class RechnerComponent implements OnInit {
         const differenz = parseFloat((gehalt - alg).toFixed(2));
         this.leistung.emit(new Leistung(leistung, leistungGesamt, alg, differenz));
       });
-  }
-
-  private getKinderFactor(eigeneKinder: boolean) {
-    return (eigeneKinder) ? 0.67 : 0.6;
-  }
-
-  private calculateLeistungMonatlich(gehalt: number, factor: number): number {
-    return (gehalt * (1 - factor));
   }
 }
