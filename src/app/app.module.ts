@@ -7,7 +7,12 @@ import {
   MatCardModule,
   MatIconModule,
   MatButtonToggleModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatGridListModule,
+  MatButtonModule,
+  MatStepperModule,
+  MatDividerModule,
+  MatMenuModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -15,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { PreventCharsDirective } from './directives/preventCharsDirective';
 import { ShiftPosition } from './pipes/splitPipe';
 import { RechnerComponent } from './components/rechner';
+import { LeistungComponent } from './components/leistung';
+import { BeitragZahlweiseComponent } from './components/beitragZahlweise';
 
 @NgModule({
   declarations: [
@@ -22,6 +29,8 @@ import { RechnerComponent } from './components/rechner';
     PreventCharsDirective,
     ShiftPosition,
     RechnerComponent,
+    LeistungComponent,
+    BeitragZahlweiseComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +41,12 @@ import { RechnerComponent } from './components/rechner';
     MatCardModule,
     MatIconModule,
     MatButtonToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatStepperModule,
+    MatDividerModule,
+    MatMenuModule,
   ],
   providers: [
   ],
