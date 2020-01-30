@@ -1,3 +1,4 @@
+<div class="sm-col-12 md-col-6 mx-auto">
 <div class="header">
   <button class="left" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <mat-icon>more_vert</mat-icon>
@@ -29,19 +30,23 @@
     <div class="sm-col">
       <img width="100%" class="mb1" src="assets/jump.jpg" />
     </div>
-    <div class="sm-col sm-col-6 pl1 pr1 mb1">
+    <div class="sm-col sm-col-12 pl1 pr1 mb1">
       <p class="headline center">Wage den Sprung in Deinen neuen Job. Wir bieten Dir ein Auffangnetz.</p>
     </div>
-    <div class="sm-col sm-col-6">
-      <p class="center pl1 pr1">
+    <div class="sm-col sm-col-12">
+      <p class="center pl1 pr1 mb2">
         Du wünscht Dir einen neuen Job, aber finanzielle Verpflichtungen oder die Sorge zu
         scheitern halten Dich zurück? Wage mit uns Dein Abenteuer!
       </p>
     </div>
-    <div class="sm-col center mb1 mt2">
+    <div class="sm-col-12 md-hide lg-hide center mb1">
       <button class="block" (click)="scroll(mehr)" mat-flat-button color="primary">Mehr erfahren</button>
     </div>
-    <div class="sm-col center mb4">
+    <div class="sm-col-12 md-hide lg-hide center mb4">
+      <button class="block" (click)="scroll(abschluss)" mat-stroked-button color="accent">Direkt abschließen</button>
+    </div>
+    <div class="sm-col-12 xs-hide sm-hide center mb4" style="margin-top: 4rem;">
+      <button class="block" style="margin-right: 15px;" (click)="scroll(mehr)" mat-flat-button color="primary">Mehr erfahren</button>
       <button class="block" (click)="scroll(abschluss)" mat-stroked-button color="accent">Direkt abschließen</button>
     </div>
   </div>
@@ -96,20 +101,22 @@
   <div class="sm-col pt4 pb3">
     <p class="headline center">Deine Vorteile</p>
   </div>
-  <div class="center p1 sm-col background-accent-dark white pb1 pt2">
-    <img src="assets/bulb.png" height="48px" />
-    <div class="mat-h2 center">FLEXIBEL</div>
-    <p class="">Schließe deine Probezeitversicherung bis einen Tag vor Beginn des neuen Jobs online ab.</p>
-  </div>
-  <div class="center p1 sm-col background-accent-middle pb1 pt2">
-    <img src="assets/megaphone.png" height="48px" />
-    <div class="mat-h2 center">ÜBERSCHAUBAR</div>
-    <p class="">Zahle erst mit Antritt deines neuen Jobs in die Probezeitversicherung ein – nur solange Du in der Probezeit bist.</p>
-  </div>
-  <div class="center p1 sm-col pt2 mb4">
-    <img src="assets/easy.png" height="48px" />
-    <div class="mat-h2 center">ENTSPANNT</div>
-    <p class="">Erhalte die Auszahlung sofort nach Vorlage der Arbeitgeber-Kündigung und suche Dir ohne finanzielle Sorgen einen neuen Job.</p>
+  <div class="clearfix">
+    <div class="center p1 sm-col md-col-4 height-features background-accent-dark white pb1 pt2 pl2 pr2">
+      <img src="assets/bulb.png" height="48px" />
+      <div class="mat-h2 center">FLEXIBEL</div>
+      <p class="">Schließe deine Probezeitversicherung bis einen Tag vor Beginn des neuen Jobs online ab.</p>
+    </div>
+    <div class="center p1 sm-col md-col-4 height-features background-accent-middle pb1 pt2 pl2 pr2">
+      <img src="assets/megaphone.png" height="48px" />
+      <div class="mat-h2 center">ÜBERSCHAUBAR</div>
+      <p class="">Zahle erst mit Antritt deines neuen Jobs in die Probezeitversicherung ein – nur solange Du in der Probezeit bist.</p>
+    </div>
+    <div class="center p1 sm-col md-col-4 height-features pt2 mb4 pl2 pr2">
+      <img src="assets/easy.png" height="48px" />
+      <div class="mat-h2 center">ENTSPANNT</div>
+      <p class="">Erhalte die Auszahlung sofort nach Vorlage der Arbeitgeber-Kündigung und suche Dir ohne finanzielle Sorgen einen neuen Job.</p>
+    </div>
   </div>
   <div #abschluss class="sm-col">
     <mat-divider></mat-divider>
@@ -175,38 +182,24 @@
           Insgesamt bekommst Du von uns maximal
           <b>{{leistungUnten?.leistungGesamt | currency:'EUR':'symbol' | split}}</b>
         </p>
-        <table>
-          <tr>
-            <th>Dein Netto</th>
-            <th>Wenn du gekündigt wirst</th>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-          </tr>
-        </table>
         <button class="block" style="margin-top: 1rem;" (click)="scroll(mehr)" mat-flat-button color="primary">Jetzt abschließen</button>
       </mat-step>
     </mat-vertical-stepper>
   </div>
-  <div #andere class="sm-col mb4">
+  <div #andere class="sm-col-12 mb4">
     <mat-divider></mat-divider>
   </div>
-  <div class="sm-col pb3">
+  <div class="sm-col-12 pb3">
     <p class="headline center">Das sagen unsere Kunden</p>
   </div>
-  <div class="sm-col pl1 pr1">
+  <div class="sm-col-12 pl1 pr1">
     <blockquote>
       Ich hab eine Familie und hohe finanzielle Verpflichtungen. Da will ich einfach kein Risiko eingehen.
       Absicherung für die Probezeit gab es bisher nicht... macht aber Sinn!
       <span class="author">~ K. Sommer, 53, Familienvater</span>
     </blockquote>
   </div>
-  <div class="sm-col pl1 pr1">
+  <div class="sm-col-12 pl1 pr1">
     <blockquote>
       Super interessante Lösung. Konnte ich einen Tag vor Antritt abschließen...
       Da geht man direkt selbstbewusster in die neue Arbeit.
@@ -214,7 +207,7 @@
       <span class="author">~ S. Nato, 40, HR Management</span>
     </blockquote>
   </div>
-  <div class="sm-col pl1 pr1">
+  <div class="sm-col-12 pl1 pr1">
     <blockquote>
       Wenn man ersteinmal daran gewöhnt ist in einer großen Firma eine sichere Anstellung zu haben überlegt man
       zweimal ob
@@ -223,10 +216,11 @@
       <span class="author">~ P. Krüger, 30, aktuell auf Jobsuche</span>
     </blockquote>
   </div>
-  <div class="sm-col center mb1 mt2">
+  <div class="sm-col-12 center mb1 mt2">
     <button class="block" (click)="scroll(mehr)" mat-flat-button color="accent">Datenschutz</button>
   </div>
-  <div class="sm-col center mb4">
+  <div class="sm-col-12 center mb4">
     <button class="block" (click)="scroll(abschluss)" mat-stroked-button color="accent">Impressum</button>
   </div>
+</div>
 </div>
