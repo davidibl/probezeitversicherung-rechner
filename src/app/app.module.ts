@@ -24,6 +24,7 @@ import { LeistungComponent } from './components/leistung';
 import { BeitragZahlweiseComponent } from './components/beitragZahlweise';
 import { CalculationService } from './services/calculationService';
 import { AnalyticsService } from './services/analyticsService';
+import { BerufeService } from './services/berufeService';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AnalyticsService } from './services/analyticsService';
   providers: [
     CalculationService,
     AnalyticsService,
+    BerufeService,
   ],
   bootstrap: [AppComponent]
 })

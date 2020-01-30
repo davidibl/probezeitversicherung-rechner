@@ -1,15 +1,11 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { BehaviorSubject, ReplaySubject, combineLatest, merge } from 'rxjs';
 import { map, tap, filter, debounceTime } from 'rxjs/operators';
-import { berufe } from '../berufe';
 import { Beitrag } from '../models/beitrag';
 import { Leistung } from '../models/leistung';
 import { CalculationService } from '../services/calculationService';
-
-export interface Beruf {
-  name: string;
-  klasse: string;
-}
+import { BerufeService } from '../services/berufeService';
+import { Beruf } from '../models/beruf';
 
 @Component({
   selector: 'app-rechner',
@@ -17,8 +13,6 @@ export interface Beruf {
   styleUrls: ['rechner.scss'],
 })
 export class RechnerComponent implements OnInit {
-
-  public berufe: Beruf[] = berufe;
 
   public eigeneKinder$ = new BehaviorSubject(false);
 
@@ -32,8 +26,7 @@ export class RechnerComponent implements OnInit {
 
   public berufPresent$ = this.beruf$.pipe(
     debounceTime(300),
-    filter(beruf => !!beruf && beruf.length > 3),
-    map(beruf => this.berufe.filter(b => b.name.toLowerCase().indexOf(beruf.toLowerCase()) > -1)),
+    map(beruf => this.berufeService.findBeruf(beruf)),
     map(berufeFiltered => berufeFiltered.slice(0, 15))
   );
 
@@ -96,7 +89,9 @@ export class RechnerComponent implements OnInit {
   @Output()
   public leistung = new EventEmitter<Leistung>();
 
-  public constructor(private calculationService: CalculationService) {}
+  public constructor(
+    private calculationService: CalculationService,
+    private berufeService: BerufeService) {}
 
   @Input()
   public setBeruf(beruf: string) {
