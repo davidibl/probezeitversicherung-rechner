@@ -1,6 +1,31 @@
+@import 'basscss/css/basscss.min.css';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap');
 
 *, body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding-top: 0px;
+  margin: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.headline {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 24px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.height-features {
+  height: 220px;
 }

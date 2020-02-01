@@ -7,19 +7,33 @@ import {
   MatCardModule,
   MatIconModule,
   MatButtonToggleModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatGridListModule,
+  MatButtonModule,
+  MatStepperModule,
+  MatDividerModule,
+  MatMenuModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { PreventCharsDirective } from './directives/preventCharsDirective';
 import { ShiftPosition } from './pipes/splitPipe';
+import { RechnerComponent } from './components/rechner';
+import { LeistungComponent } from './components/leistung';
+import { BeitragZahlweiseComponent } from './components/beitragZahlweise';
+import { CalculationService } from './services/calculationService';
+import { AnalyticsService } from './services/analyticsService';
+import { BerufeService } from './services/berufeService';
 
 @NgModule({
   declarations: [
     AppComponent,
     PreventCharsDirective,
     ShiftPosition,
+    RechnerComponent,
+    LeistungComponent,
+    BeitragZahlweiseComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,9 +44,17 @@ import { ShiftPosition } from './pipes/splitPipe';
     MatCardModule,
     MatIconModule,
     MatButtonToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatStepperModule,
+    MatDividerModule,
+    MatMenuModule,
   ],
   providers: [
+    CalculationService,
+    AnalyticsService,
+    BerufeService,
   ],
   bootstrap: [AppComponent]
 })
