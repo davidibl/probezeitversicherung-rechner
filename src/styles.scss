@@ -1,7 +1,7 @@
 @import 'basscss/css/basscss.min.css';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
 
 *, body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -14,7 +14,7 @@
 }
 
 .headline {
-  font-family: 'Noto Serif SC', serif;
+  font-family: 'Merriweather', serif;
   font-size: 24px;
 }
 
