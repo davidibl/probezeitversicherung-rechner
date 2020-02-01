@@ -31,6 +31,7 @@ import { BerufeService } from './services/berufeService';
 import { AbschlussstreckeComponent } from './components/abschlussstrecke';
 import { AbgeschlossenComponent } from './components/abgeschlossen';
 import { ScrollToService } from './services/scrollToService';
+import { ImpressumComponent } from './components/impressum';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ScrollToService } from './services/scrollToService';
     BeitragZahlweiseComponent,
     AbschlussstreckeComponent,
     AbgeschlossenComponent,
+    ImpressumComponent,
   ],
   imports: [
     BrowserModule,
