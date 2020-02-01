@@ -1,0 +1,199 @@
+<div class="clearfix">
+  <div class="sm-col">
+    <img width="100%" class="mb1" src="assets/jump.jpg" />
+  </div>
+  <div class="sm-col sm-col-12 pl1 pr1 mb1">
+    <p class="headline center">Wage den Sprung in Deinen neuen Job. Wir bieten Dir ein Auffangnetz.</p>
+  </div>
+  <div class="sm-col sm-col-12">
+    <p class="center pl1 pr1 mb2">
+      Du wünscht Dir einen neuen Job, aber finanzielle Verpflichtungen oder die Sorge zu
+      scheitern halten Dich zurück? Wage mit uns Dein Abenteuer!
+    </p>
+  </div>
+  <div class="sm-col-12 md-hide lg-hide center mb1">
+    <button class="block" (click)="scroll(mehr)" mat-flat-button color="primary">Mehr erfahren</button>
+  </div>
+  <div class="sm-col-12 md-hide lg-hide center mb4">
+    <button class="block" (click)="scroll(abschluss)" mat-stroked-button color="accent">Direkt abschließen</button>
+  </div>
+  <div class="sm-col-12 xs-hide sm-hide center mb4" style="margin-top: 4rem;">
+    <button class="block" style="margin-right: 15px;" (click)="scroll(mehr)" mat-flat-button color="primary">Mehr
+      erfahren</button>
+    <button class="block" (click)="scroll(abschluss)" mat-stroked-button color="accent">Direkt abschließen</button>
+  </div>
+</div>
+<div class="clearfix mxn2 full-width">
+  <section class="mat-h2 center">Check erstmal Preis</section>
+  <div class="col-8 px2 mx-auto">
+    <app-rechner (beitrag)="setBeitrag($event)" class="fit block"></app-rechner>
+    <app-beitrag-zahlweise class="fit block" [beitrag]="beitrag"></app-beitrag-zahlweise>
+  </div>
+</div>
+<div #mehr class="sm-col mb4">
+  <mat-divider></mat-divider>
+</div>
+<div class="sm-col">
+  <p class="headline center">Deine Story</p>
+</div>
+<div class="sm-col">
+  <mat-vertical-stepper #stepperA>
+    <mat-step completed="false" label="Eine neue Chance">
+      <img width="100%" class="mb1 mt1" src="assets/chance.jpg" />
+      <p class="mb1">Du hast einen spannenden neuen Job entdeckt und möchtest am liebsten gleich in einen neuen
+        Lebensabschnitt starten?</p>
+      <button class="block" (click)="stepperA.selectedIndex = 1" mat-stroked-button color="accent">weiter</button>
+    </mat-step>
+    <mat-step completed="false" label="Erster Schritt geschafft">
+      <p class="mb1 mt1">Das Vorstellungsgepräch lief spitze und Du hast nun einen Arbeitsvertrag. Der neuen
+        Herausforderung steht
+        nichts mehr im Weg.</p>
+      <button class="block" (click)="stepperA.selectedIndex = 2" mat-stroked-button color="accent">weiter</button>
+    </mat-step>
+    <mat-step completed="false" label="Sorgen">
+      <img width="100%" class="mb1 mt1" src="assets/sad.jpg" />
+      <p>Die Vorfreude wird von einer kleinen Sorge getrübt.</p>
+      <p>Was wenn es nicht passt?<br />
+        Was wenn während der Probezeit etwas schief läuft?<br />
+        Oder Du einfach krank wirst?
+      </p>
+      <p class="mb1">
+        Der sichere Hafen ist dann in weiter Ferne!
+      </p>
+      <button class="block" (click)="stepperA.selectedIndex = 3" mat-stroked-button color="accent">weiter</button>
+    </mat-step>
+    <mat-step completed="false" label="Die Lösung - Switch Safe">
+      <p class="mt1">Bis zum letzten Tag vor Antritt Deines neuen Jobs kannst Du Dich bei uns gegen eine Kündigung
+        seitens des
+        Arbeitgebers während der Probezeit versichern!
+      </p>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>
+<div #vorteile class="sm-col mt4">
+  <mat-divider></mat-divider>
+</div>
+<div class="sm-col pt4 pb3">
+  <p class="headline center">Deine Vorteile</p>
+</div>
+<div class="clearfix">
+  <div class="center p1 sm-col md-col-4 height-features background-accent-dark white pb1 pt2 pl2 pr2">
+    <img src="assets/bulb.png" height="48px" />
+    <div class="mat-h2 center">FLEXIBEL</div>
+    <p class="">Schließe deine Probezeitversicherung bis einen Tag vor Beginn des neuen Jobs online ab.</p>
+  </div>
+  <div class="center p1 sm-col md-col-4 height-features background-accent-middle pb1 pt2 pl2 pr2">
+    <img src="assets/megaphone.png" height="48px" />
+    <div class="mat-h2 center">ÜBERSCHAUBAR</div>
+    <p class="">Zahle erst mit Antritt deines neuen Jobs in die Probezeitversicherung ein – nur solange Du in der
+      Probezeit bist.</p>
+  </div>
+  <div class="center p1 sm-col md-col-4 height-features pt2 mb4 pl2 pr2">
+    <img src="assets/easy.png" height="48px" />
+    <div class="mat-h2 center">ENTSPANNT</div>
+    <p class="">Erhalte die Auszahlung sofort nach Vorlage der Arbeitgeber-Kündigung und suche Dir ohne finanzielle
+      Sorgen einen neuen Job.</p>
+  </div>
+</div>
+<div #abschluss class="sm-col">
+  <mat-divider></mat-divider>
+</div>
+<div class="sm-col pt4 p1 background-accent">
+  <p class="headline center pb3">Und so funktionierts</p>
+  <p class="center">
+    Wir verschaffen Dir die nötige Zeit einen neuen Weg zu finden wenn etwas schief geht
+    und gleichen Dir 6 Monate lang Deine finanzielle Einbußen im Kündigungsfall während der Probezeit aus.
+  </p>
+</div>
+<div class="sm-col background-accent">
+  <mat-vertical-stepper #abschlussstepper>
+    <mat-step [completed]="!beitragUnten?.beitragJaehrlich" label="Einfacher Abschluss">
+      <p class="mt1">Sag uns einfach Deinen Beruf, Dein zukünftiges Netto-Monatsgehalt und ob Du Kinder hast, dann
+        siehst Du auf
+        einen
+        Blick Deinen individuellen Beitrag
+        und die Leistung die Du von uns erhältst wenn Du während der Probezeit gekündigt wirst.</p>
+      <app-rechner (leistung)="leistungUnten = $event" (beitrag)="setBeitragUnten($event)" class="fit block">
+      </app-rechner>
+      <button [disabled]="!beitragUnten?.beitragJaehrlich || beitragUnten?.beitragJaehrlich < 1"
+        style="margin-top: 1rem;" class="mt1" (click)="abschlussstepper.selectedIndex = 1" mat-flat-button
+        color="primary">Zum Beitrag</button>
+    </mat-step>
+    <mat-step [completed]="false" editable="!!beitragUnten" label="Dein Beitrag">
+      <p class="mt1">
+        Du kannst nun wählen ob Du Deinen Beitrag lieber auf einmal oder in monatlichen Raten bezahlen möchtest.
+        Dein indivdueller Beitrag ist genau auf Dich zugeschnitten und macht es möglich das wir im Kündigungsfall
+        die
+        Lücke
+        zwischen Arbeitslosengeld I und Deinem aktuellen Netto Gehalt füllen können.
+      </p>
+      <app-beitrag-zahlweise class="fit block" [beitrag]="beitragUnten"></app-beitrag-zahlweise>
+      <button style="margin-top: 1rem;" class="mt1" (click)="abschlussstepper.selectedIndex = 2" mat-flat-button
+        color="primary">Weiter</button>
+    </mat-step>
+    <mat-step [completed]="false" label="Die Kündigung während der Probezeit">
+      <p class="mt1">Während der Probezeit genießt Du keinen Kündigungsschutz. Dein Arbeitgeber kann Dir jederzeit
+        ohne die Angabe
+        von Gründen kündigen.
+      </p>
+      <p>Vielleicht hat es einfach nicht ganz gepasst. Vielleicht bist Du aber auch krankheitsbedingt
+        ausgefallen. Dein Arbeitgeber jedenfalls hat das Arbeitsverhältnis noch während der Probezeit beendet.</p>
+      <p>
+        Dir steht nun nur Arbeitslosengeld I zur Verfügung.
+        Das sind für Dich <b>{{leistungUnten?.alg | currency:'EUR':'symbol' | split}}</b>.
+        Immerhin <b>{{leistungUnten?.differenz | currency:'EUR':'symbol' | split}}</b> weniger als Du ursprünglich
+        verdient hast.</p>
+      <button style="margin-top: 1rem;" class="mt1" (click)="abschlussstepper.selectedIndex = 3" mat-flat-button
+        color="primary">Deine Absicherung</button>
+    </mat-step>
+    <mat-step [completed]="false" label="Gut Abgesichert kann man Ruhe bewahren">
+      <p>
+        Zum Glück bist Du durch Switch Safe abgesichert. Du hast nun für 6 Monate Anspruch auf die vollständige
+        Differenz
+        zwischen Arbeitslosengeld und Deinem ursprünglichem Gehalt.
+      </p>
+      <div class="mat-h2">Unsere Leistung im Detail:</div>
+      <p>Für 6 Monate stocken wir Dein Arbeitslosengeld um
+        <b>{{leistungUnten?.leistungMonatlich | currency:'EUR':'symbol' | split}}</b> auf.</p>
+      <p>Dir steht also maximal 6 Monate lang Dein volles Nettogehalt zur Verfügung. In diesen 6 Monaten kannst
+        Du Sorgenfrei und ohne finanzielle Abstriche eine neue Stelle suchen.
+      </p>
+      <p>
+        Insgesamt bekommst Du von uns maximal
+        <b>{{leistungUnten?.leistungGesamt | currency:'EUR':'symbol' | split}}</b>
+      </p>
+      <button class="block" style="margin-top: 1rem;" (click)="abgeschlossen()" mat-flat-button color="primary">Jetzt
+        beantragen</button>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>
+<div #andere class="sm-col-12 mb4">
+  <mat-divider></mat-divider>
+</div>
+<div class="sm-col-12 pb3">
+  <p class="headline center">Das sagen unsere Kunden</p>
+</div>
+<div class="sm-col-12 pl1 pr1">
+  <blockquote>
+    Ich hab eine Familie und hohe finanzielle Verpflichtungen. Da will ich einfach kein Risiko eingehen.
+    Absicherung für die Probezeit gab es bisher nicht... macht aber Sinn!
+    <span class="author">~ K. Sommer, 53, Familienvater</span>
+  </blockquote>
+</div>
+<div class="sm-col-12 pl1 pr1">
+  <blockquote>
+    Super interessante Lösung. Konnte ich einen Tag vor Antritt abschließen...
+    Da geht man direkt selbstbewusster in die neue Arbeit.
+    Und im Fall der Fälle habe ich als Arbeitnehmer einen echten Mehrwert.
+    <span class="author">~ S. Nato, 40, HR Management</span>
+  </blockquote>
+</div>
+<div class="sm-col-12 pl1 pr1">
+  <blockquote>
+    Wenn man ersteinmal daran gewöhnt ist in einer großen Firma eine sichere Anstellung zu haben überlegt man
+    zweimal ob
+    man das riskiert. Und dann klappts wirklich nicht.
+    Dank Switch Safe kann ich aber jetzt ganz in Ruhe eine weitere Alternative finden.
+    <span class="author">~ P. Krüger, 30, aktuell auf Jobsuche</span>
+  </blockquote>
+</div>

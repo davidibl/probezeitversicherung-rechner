@@ -29,3 +29,130 @@
 .height-features {
   height: 220px;
 }
+
+.inline-block {
+  display: inline-block;
+}
+
+.rechner {
+  margin-right: 1rem;
+}
+
+.preis-big,
+.preis-small {
+  margin: 0;
+}
+
+.preis-tag {
+  margin: 2rem;
+}
+
+.card {
+  height: 270px;
+}
+
+.mt0 {
+  margin-top: 0;
+}
+
+.mb05 {
+  margin-bottom: 0.5rem;
+}
+
+.mb1 {
+  margin-bottom: 1rem;
+}
+
+.leistung {
+  width: 233px;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 900;
+  background-color: white;
+}
+
+.body {
+  padding-top: 80px;
+}
+
+blockquote {
+  line-height: 1.2;
+  text-align: center;
+  padding: 24px 24px 24px 60px;
+  margin: 0 0px;
+  margin-bottom: 18px;
+  border: solid 1px rgb(220, 220, 220);
+  position: relative;
+}
+
+
+blockquote:before {
+  background-image: url(http://i.imgur.com/uoHCjSK.png);
+  top: 0;
+  left: 0;
+}
+
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  content: ".";
+  font-size: 0;
+}
+
+.author {
+  display: block;
+  text-align: right;
+  font-size: 18px;
+  margin-top: 10px;
+  color: rgb(150,150,150);
+  font-style: italic;
+}
+
+.background-accent {
+  background-color: rgba(160, 163, 180, 0.1);
+}
+
+.background-accent-dark {
+  background-color: rgba(160, 163, 180, 0.9);
+}
+
+.background-accent-middle {
+  background-color: rgba(160, 163, 180, 0.5);
+}
+
+.white {
+  color: white;
+}
+
+
+.hide {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+@media (max-width: 40em) {
+  .xs-hide { display: none !important }
+}
+
+@media (min-width: 40em) and (max-width: 52em) {
+  .sm-hide { display: none !important }
+}
+
+@media (min-width: 52em) and (max-width: 64em) {
+  .md-hide { display: none !important }
+}
+
+@media (min-width: 64em) {
+  .lg-hide { display: none !important }
+}
+
+.display-none { display: none !important }
+
