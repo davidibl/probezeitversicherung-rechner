@@ -6,6 +6,7 @@ import { ImpressumComponent } from './components/impressum';
 
 export const routes: Routes = [
     { component: AbschlussstreckeComponent, path: '', pathMatch: 'full' },
+    { component: AbschlussstreckeComponent, path: 'start', pathMatch: 'full' },
     { component: AbgeschlossenComponent, path: 'abgeschlossen', pathMatch: 'full' },
     { component: ImpressumComponent, path: 'impressum', pathMatch: 'full' },
 ];

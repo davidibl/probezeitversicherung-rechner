@@ -4,17 +4,33 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu style="z-index: 1002;" #menu="matMenu">
-      <button (click)="scroll('mehr')" mat-menu-item>
-        <mat-icon>loop</mat-icon>
-        <span>So funktionierts</span>
+      <button (click)="scroll('')" *ngIf="!(isOnAbschlussstrecke | async)" mat-menu-item>
+        <mat-icon>accessibility_new</mat-icon>
+        <span>Los geht's</span>
       </button>
-      <button (click)="scroll('abschluss')" mat-menu-item>
+      <button (click)="scroll('mehr')" *ngIf="isOnAbschlussstrecke | async" mat-menu-item>
+        <mat-icon>history</mat-icon>
+        <span>Unsere Story</span>
+      </button>
+      <button (click)="scroll('vorteile')" *ngIf="isOnAbschlussstrecke | async" mat-menu-item>
+        <mat-icon>stars</mat-icon>
+        <span>Deine Vorteile</span>
+      </button>
+      <button (click)="scroll('abschluss')" *ngIf="isOnAbschlussstrecke | async" mat-menu-item>
         <mat-icon>shopping_cart</mat-icon>
         <span>Abschließen</span>
       </button>
-      <button (click)="scroll('andere')" mat-menu-item>
+      <button (click)="scroll('andere')" *ngIf="isOnAbschlussstrecke | async" mat-menu-item>
         <mat-icon>mic</mat-icon>
         <span>Das sagen andere</span>
+      </button>
+      <button (click)="scroll('impressum')" *ngIf="!(isImpressum | async)" mat-menu-item>
+        <mat-icon>info</mat-icon>
+        <span>Impressum</span>
+      </button>
+      <button (click)="scroll('datenschutz')" *ngIf="!(isDatenschutz | async)" mat-menu-item>
+        <mat-icon>https</mat-icon>
+        <span>Datenschutzerklärung</span>
       </button>
     </mat-menu>
     <div class="">

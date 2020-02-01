@@ -20,6 +20,9 @@ export class AbschlussstreckeComponent implements OnInit {
   @ViewChild('vorteile', { static: true })
   private vorteile;
 
+  @ViewChild('mehr', {static: true})
+  private mehr;
+
   public beitrag: Beitrag;
   public beitragUnten: Beitrag;
   public leistungUnten: Leistung;
@@ -54,6 +57,8 @@ export class AbschlussstreckeComponent implements OnInit {
         return this.abschluss.nativeElement;
       case 'vorteile':
         return this.vorteile.nativeElement;
+      case 'mehr':
+        return this.mehr.nativeElement;
       default:
         return this.andere.nativeElement;
     }
