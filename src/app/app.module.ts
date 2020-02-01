@@ -32,6 +32,7 @@ import { AbschlussstreckeComponent } from './components/abschlussstrecke';
 import { AbgeschlossenComponent } from './components/abgeschlossen';
 import { ScrollToService } from './services/scrollToService';
 import { ImpressumComponent } from './components/impressum';
+import { DatenschutzComponent } from './components/datenschutz';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ImpressumComponent } from './components/impressum';
     AbschlussstreckeComponent,
     AbgeschlossenComponent,
     ImpressumComponent,
+    DatenschutzComponent,
   ],
   imports: [
     BrowserModule,
