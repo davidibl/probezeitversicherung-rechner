@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Beitrag } from './models/beitrag';
 import { Leistung } from './models/leistung';
+import { ScrollToService } from './services/scrollToService';
 
 @Component({
   selector: 'app-root',
@@ -9,19 +10,9 @@ import { Leistung } from './models/leistung';
 })
 export class AppComponent {
 
-  public beitrag: Beitrag;
-  public beitragUnten: Beitrag;
-  public leistungUnten: Leistung;
+  public constructor(private scrollToService: ScrollToService) {}
 
-  public scroll(el: HTMLElement) {
-    el.scrollIntoView();
-  }
-
-  public setBeitrag(beitrag: Beitrag) {
-    this.beitrag = beitrag;
-  }
-
-  public setBeitragUnten(beitrag: Beitrag) {
-    this.beitragUnten = beitrag;
+  public scroll(name: string) {
+    this.scrollToService.scrollTo(name);
   }
 }

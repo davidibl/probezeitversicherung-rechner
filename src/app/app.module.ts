@@ -29,6 +29,8 @@ import { CalculationService } from './services/calculationService';
 import { AnalyticsService } from './services/analyticsService';
 import { BerufeService } from './services/berufeService';
 import { AbschlussstreckeComponent } from './components/abschlussstrecke';
+import { AbgeschlossenComponent } from './components/abgeschlossen';
+import { ScrollToService } from './services/scrollToService';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { AbschlussstreckeComponent } from './components/abschlussstrecke';
     LeistungComponent,
     BeitragZahlweiseComponent,
     AbschlussstreckeComponent,
+    AbgeschlossenComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import { AbschlussstreckeComponent } from './components/abschlussstrecke';
     CalculationService,
     AnalyticsService,
     BerufeService,
+    ScrollToService,
   ],
   bootstrap: [AppComponent]
 })

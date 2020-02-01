@@ -162,8 +162,8 @@
         Insgesamt bekommst Du von uns maximal
         <b>{{leistungUnten?.leistungGesamt | currency:'EUR':'symbol' | split}}</b>
       </p>
-      <button class="block" style="margin-top: 1rem;" (click)="scroll(mehr)" mat-flat-button color="primary">Jetzt
-        abschließen</button>
+      <button class="block" style="margin-top: 1rem;" (click)="abgeschlossen()" mat-flat-button color="primary">Jetzt
+        beantragen</button>
     </mat-step>
   </mat-vertical-stepper>
 </div>
