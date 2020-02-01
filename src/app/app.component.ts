@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ScrollToService } from './services/scrollToService';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { AbschlussstreckeComponent } from './components/abschlussstrecke';
 import { filter, map } from 'rxjs/operators';
 import { routing, routes } from './app.routing';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,9 @@ import { routing, routes } from './app.routing';
 export class AppComponent {
 
   private routes = routes;
+  private scrollingElement;
+
+  public showShadow = false;
 
   public isOnAbschlussstrecke = this.router.events
     .pipe(
@@ -37,7 +41,16 @@ export class AppComponent {
 
   public constructor(
     private scrollToService: ScrollToService,
-    private router: Router) {}
+    @Inject(DOCUMENT) private document: Document,
+    private router: Router) {
+
+      this.scrollingElement = this.document.scrollingElement ||
+      this.document.documentElement;
+
+      document.onscroll = () => {
+          this.showShadow = this.scrollingElement.scrollTop > 10;
+      };
+  }
 
   public scroll(name: string) {
     if (this.routes.filter(route => route.path.indexOf(name) > -1).length > 0) {
