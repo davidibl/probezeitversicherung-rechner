@@ -1,0 +1,6 @@
+
+:host .background-accent::ng-deep {
+  .mat-stepper-horizontal, .mat-stepper-vertical {
+    background-color: transparent;
+  }
+}

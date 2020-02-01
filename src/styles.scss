@@ -125,12 +125,6 @@ blockquote:after {
   background-color: rgba(160, 163, 180, 0.5);
 }
 
-:host .background-accent::ng-deep {
-  .mat-stepper-horizontal, .mat-stepper-vertical {
-    background-color: transparent;
-  }
-}
-
 .white {
   color: white;
 }
