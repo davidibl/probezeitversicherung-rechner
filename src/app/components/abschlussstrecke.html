@@ -41,43 +41,7 @@
 <div #mehr class="sm-col mb4">
   <mat-divider></mat-divider>
 </div>
-<div class="sm-col">
-  <p class="headline center">Deine Story</p>
-</div>
-<div class="sm-col">
-  <mat-vertical-stepper #stepperA>
-    <mat-step completed="false" label="Eine neue Chance">
-      <img width="100%" class="mb1 mt1" src="assets/chance.jpg" />
-      <p class="mb1">Du hast einen spannenden neuen Job entdeckt und möchtest am liebsten gleich in einen neuen
-        Lebensabschnitt starten?</p>
-      <button class="block" (click)="stepperA.selectedIndex = 1" mat-stroked-button color="accent">weiter</button>
-    </mat-step>
-    <mat-step completed="false" label="Erster Schritt geschafft">
-      <p class="mb1 mt1">Das Vorstellungsgepräch lief spitze und Du hast nun einen Arbeitsvertrag. Der neuen
-        Herausforderung steht
-        nichts mehr im Weg.</p>
-      <button class="block" (click)="stepperA.selectedIndex = 2" mat-stroked-button color="accent">weiter</button>
-    </mat-step>
-    <mat-step completed="false" label="Sorgen">
-      <img width="100%" class="mb1 mt1" src="assets/sad.jpg" />
-      <p>Die Vorfreude wird von einer kleinen Sorge getrübt.</p>
-      <p>Was wenn es nicht passt?<br />
-        Was wenn während der Probezeit etwas schief läuft?<br />
-        Oder Du einfach krank wirst?
-      </p>
-      <p class="mb1">
-        Der sichere Hafen ist dann in weiter Ferne!
-      </p>
-      <button class="block" (click)="stepperA.selectedIndex = 3" mat-stroked-button color="accent">weiter</button>
-    </mat-step>
-    <mat-step completed="false" label="Die Lösung - Switch Safe">
-      <p class="mt1">Bis zum letzten Tag vor Antritt Deines neuen Jobs kannst Du Dich bei uns gegen eine Kündigung
-        seitens des
-        Arbeitgebers während der Probezeit versichern!
-      </p>
-    </mat-step>
-  </mat-vertical-stepper>
-</div>
+<app-unsere-story></app-unsere-story>
 <div #vorteile class="sm-col mt4">
   <mat-divider></mat-divider>
 </div>

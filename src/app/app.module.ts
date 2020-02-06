@@ -33,6 +33,7 @@ import { AbgeschlossenComponent } from './components/abgeschlossen';
 import { ScrollToService } from './services/scrollToService';
 import { ImpressumComponent } from './components/impressum';
 import { DatenschutzComponent } from './components/datenschutz';
+import { UnsereStoryComponent } from './components/unsereStory';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DatenschutzComponent } from './components/datenschutz';
     AbgeschlossenComponent,
     ImpressumComponent,
     DatenschutzComponent,
+    UnsereStoryComponent,
   ],
   imports: [
     BrowserModule,
