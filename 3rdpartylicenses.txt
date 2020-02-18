@@ -62,17 +62,30 @@ THE SOFTWARE.
 
 @angular/material/autocomplete
 
-@angular/material/card
+@angular/material/button
+
+@angular/material/button-toggle
 
 @angular/material/checkbox
 
 @angular/material/core
 
+@angular/material/divider
+
 @angular/material/form-field
 
 @angular/material/icon
 
+@angular/material/menu
+
+@angular/material/stepper
+
+@angular/material/tooltip
+
 @angular/platform-browser
+MIT
+
+@angular/router
 MIT
 
 rxjs
