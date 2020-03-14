@@ -13,7 +13,8 @@ import {
   MatButtonModule,
   MatStepperModule,
   MatDividerModule,
-  MatMenuModule
+  MatMenuModule,
+  MatTooltipModule
 } from '@angular/material';
 
 import { routing } from './app.routing';
@@ -34,6 +35,10 @@ import { ScrollToService } from './services/scrollToService';
 import { ImpressumComponent } from './components/impressum';
 import { DatenschutzComponent } from './components/datenschutz';
 import { UnsereStoryComponent } from './components/unsereStory';
+import { RechnerOnlyComponent } from './components/rechnerOnly';
+import { SiteContainerComponent } from './components/siteContainer';
+import { WerteOnlyComponent } from './components/werteOnly';
+import { RechnerCompleteComponent } from './components/rechnerComplete';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,11 @@ import { UnsereStoryComponent } from './components/unsereStory';
     ImpressumComponent,
     DatenschutzComponent,
     UnsereStoryComponent,
+    SiteContainerComponent,
+    RechnerOnlyComponent,
+    WerteOnlyComponent,
+    LeistungComponent,
+    RechnerCompleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +74,7 @@ import { UnsereStoryComponent } from './components/unsereStory';
     MatStepperModule,
     MatDividerModule,
     MatMenuModule,
+    MatTooltipModule,
     RouterModule,
     routing,
   ],

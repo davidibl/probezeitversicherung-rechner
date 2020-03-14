@@ -1,0 +1,13 @@
+<div style="margin-bottom: 1rem;">
+  <p>staatliche Leistung (ALG I)</p>
+  <h3>{{leistung?.alg | currency:'EUR':'symbol' | split}}</h3>
+</div>
+<div style="margin-bottom: 1rem;">
+  <p>Versicherungsleistung monatlich</p>
+  <h3>{{leistung?.leistungMonatlich | currency:'EUR':'symbol' | split}}</h3>
+</div>
+<div>
+  <p>Versicherungsleistung gesamt<mat-icon matTooltip="Die Gesamtleistung wird monatliche ausbezahlt.">info</mat-icon>
+  </p>
+  <h3>{{leistung?.leistungGesamt | currency:'EUR':'symbol' | split}}</h3>
+</div>
